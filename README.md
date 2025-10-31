@@ -1,73 +1,157 @@
-# Welcome to your Lovable project
+# Clime - Your Personal Sky Companion 🌤️
 
-## Project info
+A modern, emotionally engaging weather companion app that blends AI, weather data, and mood interpretation to create a personalized experience.
 
 **URL**: https://lovable.dev/projects/55873ed3-e6ec-429c-85fc-801d640f94d7
 
-## How can I edit this code?
+## Features ✨
 
-There are several ways of editing your application.
+- **Real-time Weather Display** - Current weather conditions with beautiful visuals
+- **5-Day Forecast** - Interactive carousel showing upcoming weather
+- **Mood Engine** - Converts weather conditions into emotional experiences
+- **Quick Actions** - Get instant answers to common weather questions
+- **Smart Recommendations** - Personalized suggestions based on current weather
+- **Voice Conversation** - Talk to Clime using speech recognition
+- **Multi-language Support** - English, Tamil, Hindi, Telugu, Malayalam
+- **Dark/Light Mode** - Adaptive theming
+- **Location Detection** - Automatic location-based weather
+- **City Search** - Find weather for any city worldwide
+- **Shareable Weather Cards** - Share your current weather experience
 
-**Use Lovable**
+## Tech Stack 🛠️
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/55873ed3-e6ec-429c-85fc-801d640f94d7) and start prompting.
+- **Frontend**: React + TypeScript + Vite
+- **Styling**: TailwindCSS with glassmorphism design
+- **Weather API**: OpenWeatherMap
+- **Voice**: Web Speech API (Speech Recognition & Synthesis)
+- **State**: React Hooks + LocalStorage
 
-Changes made via Lovable will be committed automatically to this repo.
+## Setup Instructions 🚀
 
-**Use your preferred IDE**
+### 1. Get Your OpenWeatherMap API Key
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+1. Visit [OpenWeatherMap API](https://openweathermap.org/api)
+2. Sign up for a free account
+3. Navigate to "API keys" in your account
+4. Copy your API key
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 2. Configure Environment Variables
 
-Follow these steps:
+**For Lovable Deployment:**
+1. Go to Project Settings → Environment Variables
+2. Add: `VITE_OPENWEATHER_API_KEY` with your API key value
+
+**For Local Development:**
+1. Create a `.env` file in the root directory:
+   ```bash
+   cp .env.example .env
+   ```
+2. Add your OpenWeatherMap API key:
+   ```
+   VITE_OPENWEATHER_API_KEY=your_actual_api_key_here
+   ```
+
+### 3. Local Development
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Step 1: Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Step 2: Navigate to the project directory
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Step 3: Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 4: Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Deployment 🌐
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Deploy with Lovable (Recommended)
 
-**Use GitHub Codespaces**
+1. Open [Lovable](https://lovable.dev/projects/55873ed3-e6ec-429c-85fc-801d640f94d7)
+2. Click on **Share → Publish**
+3. Add environment variable in Project Settings:
+   - Key: `VITE_OPENWEATHER_API_KEY`
+   - Value: Your OpenWeatherMap API key
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Deploy to Vercel
 
-## What technologies are used for this project?
+1. Push your code to GitHub
+2. Import project in Vercel
+3. Add environment variable: `VITE_OPENWEATHER_API_KEY`
+4. Deploy
 
-This project is built with:
+### Deploy to Netlify
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+1. Push your code to GitHub
+2. Connect repository in Netlify
+3. Add environment variable: `VITE_OPENWEATHER_API_KEY`
+4. Deploy
 
-## How can I deploy this project?
+## Environment Variables 🔐
 
-Simply open [Lovable](https://lovable.dev/projects/55873ed3-e6ec-429c-85fc-801d640f94d7) and click on Share -> Publish.
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `VITE_OPENWEATHER_API_KEY` | Your OpenWeatherMap API key | Yes |
 
-## Can I connect a custom domain to my Lovable project?
+**Important**: Never commit your `.env` file to version control. It's already included in `.gitignore`.
 
-Yes, you can!
+## Browser Support 🌐
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+- **Voice Features**: Chrome, Edge, Safari (iOS 14.5+)
+- **Core Features**: All modern browsers
+- **Speech Recognition**: Limited to browsers with Web Speech API support
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Custom Domain 🌍
+
+To connect a custom domain:
+1. Navigate to Project > Settings > Domains
+2. Click "Connect Domain"
+3. Follow the setup instructions
+
+Read more: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+
+## API Rate Limits ⚠️
+
+OpenWeatherMap free tier includes:
+- 60 calls/minute
+- 1,000,000 calls/month
+
+The app makes approximately:
+- 1 call on load
+- 1 call per city search
+- 1 call per forecast request
+
+## Project Structure 📁
+
+```
+src/
+├── components/          # React components
+├── lib/                # Utilities and services
+├── pages/              # Route pages
+└── assets/             # Static assets
+```
+
+## Contributing 🤝
+
+Contributions are welcome! Feel free to edit via:
+- **Lovable**: Direct prompting in the editor
+- **GitHub**: Edit files directly or use Codespaces
+- **Local IDE**: Clone, edit, and push changes
+
+## License 📄
+
+MIT License - feel free to use this project for personal or commercial purposes.
+
+## Credits 🙏
+
+- Weather data provided by [OpenWeatherMap](https://openweathermap.org/)
+- Icons from [Lucide React](https://lucide.dev/)
+- Built with [Lovable](https://lovable.dev/)
+
+---
+
+Made with ❤️ using Lovable - Your Personal Sky Companion

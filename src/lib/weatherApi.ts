@@ -22,15 +22,26 @@ export interface ForecastDay {
   description: string;
 }
 
-const API_KEY = "bd5e378503939ddaee76f12ad7a97608"; // Free OpenWeatherMap API key for demo
+const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY || "bd5e378503939ddaee76f12ad7a97608";
 
 export async function fetchWeather(city: string): Promise<WeatherData> {
+  if (!API_KEY || API_KEY === "your_api_key_here") {
+    throw new Error("OpenWeatherMap API key is not configured. Please add VITE_OPENWEATHER_API_KEY to your environment variables.");
+  }
+
   const response = await fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
   );
 
   if (!response.ok) {
-    throw new Error("City not found");
+    if (response.status === 404) {
+      throw new Error("City not found. Please check the spelling and try again.");
+    } else if (response.status === 401) {
+      throw new Error("Invalid API key. Please check your OpenWeatherMap API key.");
+    } else if (response.status === 429) {
+      throw new Error("Too many requests. Please try again in a few minutes.");
+    }
+    throw new Error("Unable to fetch weather data. Please try again later.");
   }
 
   const data = await response.json();
@@ -51,12 +62,21 @@ export async function fetchWeather(city: string): Promise<WeatherData> {
 }
 
 export async function fetchWeatherByCoords(lat: number, lon: number): Promise<WeatherData> {
+  if (!API_KEY || API_KEY === "your_api_key_here") {
+    throw new Error("OpenWeatherMap API key is not configured.");
+  }
+
   const response = await fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
   );
 
   if (!response.ok) {
-    throw new Error("Unable to fetch weather");
+    if (response.status === 401) {
+      throw new Error("Invalid API key.");
+    } else if (response.status === 429) {
+      throw new Error("Too many requests. Please try again later.");
+    }
+    throw new Error("Unable to fetch weather for your location.");
   }
 
   const data = await response.json();
@@ -77,15 +97,21 @@ export async function fetchWeatherByCoords(lat: number, lon: number): Promise<We
 }
 
 export async function fetchForecast(city: string): Promise<ForecastDay[]> {
-  const response = await fetch(
-    `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric`
-  );
-
-  if (!response.ok) {
-    throw new Error("Unable to fetch forecast");
+  if (!API_KEY || API_KEY === "your_api_key_here") {
+    return []; // Silently fail for forecast if API key is missing
   }
 
-  const data = await response.json();
+  try {
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric`
+    );
+
+    if (!response.ok) {
+      console.warn("Unable to fetch forecast data");
+      return [];
+    }
+
+    const data = await response.json();
   
   // Group by day and get one forecast per day (noon time preferred)
   const dailyForecasts: ForecastDay[] = [];
@@ -110,4 +136,8 @@ export async function fetchForecast(city: string): Promise<ForecastDay[]> {
   }
 
   return dailyForecasts;
+  } catch (error) {
+    console.error("Forecast fetch error:", error);
+    return [];
+  }
 }
