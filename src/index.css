@@ -36,23 +36,36 @@ All colors MUST be HSL.
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Weather Mood Colors */
+    --sunny: 45 100% 60%;
+    --sunny-secondary: 35 100% 55%;
+    --sunny-accent: 50 100% 70%;
+    
+    --rainy: 210 50% 50%;
+    --rainy-secondary: 210 45% 40%;
+    --rainy-accent: 210 55% 60%;
+    
+    --cloudy: 260 30% 85%;
+    --cloudy-secondary: 250 25% 75%;
+    --cloudy-accent: 270 35% 90%;
+    
+    --clear: 200 80% 60%;
+    --clear-secondary: 200 75% 55%;
+    --clear-accent: 200 85% 70%;
+    
+    --night: 220 40% 15%;
+    --night-secondary: 220 35% 20%;
+    --night-accent: 220 60% 45%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Glass Effect */
+    --glass-bg: 255 255 255 / 0.1;
+    --glass-border: 255 255 255 / 0.2;
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Transition */
+    --transition-smooth: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
@@ -83,14 +96,16 @@ All colors MUST be HSL.
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Dark mode weather adjustments */
+    --sunny: 45 90% 55%;
+    --rainy: 210 45% 45%;
+    --cloudy: 260 25% 70%;
+    --clear: 200 70% 55%;
+    --night: 220 50% 10%;
+
+    --glass-bg: 0 0 0 / 0.3;
+    --glass-border: 255 255 255 / 0.1;
   }
 }
 
