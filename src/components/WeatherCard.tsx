@@ -1,6 +1,8 @@
-import { Cloud, Droplets, Wind, MapPin } from "lucide-react";
+import { Cloud, Droplets, Wind, MapPin, Eye, Gauge, ChevronDown, ChevronUp } from "lucide-react";
 import { WeatherData } from "@/lib/weatherApi";
 import { MoodData } from "@/lib/moodEngine";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 interface WeatherCardProps {
   weather: WeatherData;
@@ -8,6 +10,8 @@ interface WeatherCardProps {
 }
 
 export function WeatherCard({ weather, mood }: WeatherCardProps) {
+  const [showDetails, setShowDetails] = useState(false);
+
   return (
     <div className="relative w-full max-w-lg mx-auto animate-scale-in">
       {/* Glass Card */}
@@ -46,6 +50,46 @@ export function WeatherCard({ weather, mood }: WeatherCardProps) {
             <div className="text-xl font-semibold text-white">{weather.condition}</div>
           </div>
         </div>
+
+        {/* Expandable Details */}
+        <Button
+          onClick={() => setShowDetails(!showDetails)}
+          className="w-full mb-4 h-12 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 text-white/80 transition-all flex items-center justify-center gap-2"
+        >
+          {showDetails ? (
+            <>
+              <ChevronUp className="w-5 h-5" />
+              <span>Hide Details</span>
+            </>
+          ) : (
+            <>
+              <ChevronDown className="w-5 h-5" />
+              <span>More Details</span>
+            </>
+          )}
+        </Button>
+
+        {showDetails && (
+          <div className="grid grid-cols-3 gap-4 mb-6 animate-fade-in">
+            <div className="flex flex-col items-center p-4 bg-white/5 rounded-2xl backdrop-blur-sm">
+              <Gauge className="w-6 h-6 text-white/70 mb-2" />
+              <div className="text-sm text-white/60">Feels Like</div>
+              <div className="text-xl font-semibold text-white">{weather.feelsLike}°</div>
+            </div>
+
+            <div className="flex flex-col items-center p-4 bg-white/5 rounded-2xl backdrop-blur-sm">
+              <Eye className="w-6 h-6 text-white/70 mb-2" />
+              <div className="text-sm text-white/60">Visibility</div>
+              <div className="text-xl font-semibold text-white">{weather.visibility} km</div>
+            </div>
+
+            <div className="flex flex-col items-center p-4 bg-white/5 rounded-2xl backdrop-blur-sm">
+              <Gauge className="w-6 h-6 text-white/70 mb-2" />
+              <div className="text-sm text-white/60">Pressure</div>
+              <div className="text-xl font-semibold text-white">{weather.pressure} hPa</div>
+            </div>
+          </div>
+        )}
 
         {/* Mood Quote */}
         <div className="p-4 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10 animate-fade-in">

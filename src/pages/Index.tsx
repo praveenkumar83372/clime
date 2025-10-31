@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchWeather, fetchWeatherByCoords, WeatherData } from "@/lib/weatherApi";
+import { fetchWeather, fetchWeatherByCoords, WeatherData, fetchForecast, ForecastDay } from "@/lib/weatherApi";
 import { getMoodFromWeather, isNightTime, MoodData } from "@/lib/moodEngine";
 import { BackgroundScene } from "@/components/BackgroundScene";
 import { WeatherCard } from "@/components/WeatherCard";
@@ -7,12 +7,16 @@ import { SearchBar } from "@/components/SearchBar";
 import { ControlsBar } from "@/components/ControlsBar";
 import { VoiceConversation } from "@/components/VoiceConversation";
 import { SettingsModal } from "@/components/SettingsModal";
+import { ForecastCarousel } from "@/components/ForecastCarousel";
+import { QuickActions } from "@/components/QuickActions";
+import { WeatherRecommendations } from "@/components/WeatherRecommendations";
 import { Language, detectBrowserLanguage, translate } from "@/lib/translations";
 import { toast } from "sonner";
 
 const Index = () => {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [mood, setMood] = useState<MoodData | null>(null);
+  const [forecast, setForecast] = useState<ForecastDay[]>([]);
   const [isDark, setIsDark] = useState(false);
   const [isSoundOn, setIsSoundOn] = useState(false);
   const [showVoice, setShowVoice] = useState(false);
@@ -69,12 +73,20 @@ const Index = () => {
     }
   };
 
-  const updateWeather = (data: WeatherData) => {
+  const updateWeather = async (data: WeatherData) => {
     setWeather(data);
     const isNight = isNightTime(data.icon);
     const moodData = getMoodFromWeather(data.condition, isNight);
     setMood(moodData);
     setIsLoading(false);
+
+    // Fetch forecast data
+    try {
+      const forecastData = await fetchForecast(data.city);
+      setForecast(forecastData);
+    } catch (error) {
+      console.error("Could not fetch forecast:", error);
+    }
 
     // Save city if not already saved
     if (!savedCities.includes(data.city)) {
@@ -150,6 +162,21 @@ const Index = () => {
 
         {/* Weather Card */}
         <WeatherCard weather={weather} mood={mood} />
+
+        {/* Quick Actions */}
+        <QuickActions 
+          weather={weather} 
+          onAskClime={(question) => {
+            // Optional: could open voice conversation with pre-filled question
+            console.log("User asked:", question);
+          }} 
+        />
+
+        {/* Weather Recommendations */}
+        <WeatherRecommendations weather={weather} />
+
+        {/* Forecast Carousel */}
+        {forecast.length > 0 && <ForecastCarousel forecast={forecast} />}
 
         {/* Controls Bar */}
         <ControlsBar
