@@ -30,7 +30,10 @@ export function SearchBar({ onSearch, onLocationRequest, placeholder = "Search c
             value={city}
             onChange={(e) => setCity(e.target.value)}
             placeholder={placeholder}
-            className="pl-14 h-16 glass-card text-white text-lg placeholder:text-white/90 rounded-3xl focus:shadow-elevated transition-all font-medium text-shadow-soft border-2"
+            /* * UPDATED THIS LINE:
+             * Changed "placeholder:text-white/90" to "placeholder:text-white"
+             */
+            className="pl-14 h-16 glass-card text-white text-lg placeholder:text-white rounded-3xl focus:shadow-elevated transition-all font-medium text-shadow-soft border-2"
           />
         </div>
         <Button
