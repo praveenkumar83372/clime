@@ -22,7 +22,7 @@ export interface ForecastDay {
   description: string;
 }
 
-const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY || "bd5e378503939ddaee76f12ad7a97608";
+const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY || "d99c193b5d7713d4c1f79682b2476326";
 
 export async function fetchWeather(city: string): Promise<WeatherData> {
   if (!API_KEY || API_KEY === "your_api_key_here") {
