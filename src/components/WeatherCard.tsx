@@ -35,19 +35,22 @@ export function WeatherCard({ weather, mood }: WeatherCardProps) {
 
         {/* Weather Details Grid */}
         <div className="grid grid-cols-3 gap-4 mb-6 relative z-10">
-          <div className="glass-card rounded-2xl p-4 group cursor-pointer hover:shadow-elevated interactive-glow animate-fade-in text-white hover:bg-white hover:text-black">
+          {/* * UPDATED: Removed hover:bg-white and hover:text-black */ }
+          <div className="glass-card rounded-2xl p-4 group cursor-pointer hover:shadow-elevated interactive-glow animate-fade-in text-white">
             <Droplets className="w-7 h-7 text-blue-300 mb-2 mx-auto group-hover:scale-110 transition-transform duration-300 drop-shadow-lg animate-bounce-slow" />
             <div className="text-xs mb-1 text-center font-semibold text-shadow-soft">Humidity</div>
             <div className="text-2xl font-bold text-center text-shadow-medium">{weather.humidity}%</div>
           </div>
 
-          <div className="glass-card rounded-2xl p-4 group cursor-pointer hover:shadow-elevated interactive-glow animate-fade-in text-white hover:bg-white hover:text-black" style={{animationDelay: '0.1s'}}>
+          {/* * UPDATED: Removed hover:bg-white and hover:text-black */ }
+          <div className="glass-card rounded-2xl p-4 group cursor-pointer hover:shadow-elevated interactive-glow animate-fade-in text-white" style={{animationDelay: '0.1s'}}>
             <Wind className="w-7 h-7 text-cyan-300 mb-2 mx-auto group-hover:scale-110 transition-transform duration-300 drop-shadow-lg animate-bounce-slow" style={{animationDelay: '0.2s'}} />
             <div className="text-xs mb-1 text-center font-semibold text-shadow-soft">Wind</div>
             <div className="text-2xl font-bold text-center text-shadow-medium">{weather.windSpeed} km/h</div>
           </div>
 
-          <div className="glass-card rounded-2xl p-4 group cursor-pointer hover:shadow-elevated interactive-glow animate-fade-in text-white hover:bg-white hover:text-black" style={{animationDelay: '0.2s'}}>
+          {/* * UPDATED: Removed hover:bg-white and hover:text-black */ }
+          <div className="glass-card rounded-2xl p-4 group cursor-pointer hover:shadow-elevated interactive-glow animate-fade-in text-white" style={{animationDelay: '0.2s'}}>
             <Cloud className="w-7 h-7 text-purple-300 mb-2 mx-auto group-hover:scale-110 transition-transform duration-300 drop-shadow-lg animate-bounce-slow" style={{animationDelay: '0.4s'}} />
             <div className="text-xs mb-1 text-center font-semibold text-shadow-soft">Condition</div>
             <div className="text-lg font-bold text-center text-shadow-medium">{weather.condition}</div>
@@ -57,7 +60,8 @@ export function WeatherCard({ weather, mood }: WeatherCardProps) {
         {/* Expandable Details */}
         <Button
           onClick={() => setShowDetails(!showDetails)}
-          className="w-full mb-4 h-14 rounded-2xl glass-card text-white/90 font-semibold transition-all flex items-center justify-center gap-2 interactive-scale relative z-10 hover:shadow-elevated hover:bg-white hover:text-black"
+          /* * UPDATED: Removed hover:bg-white and hover:text-black */
+          className="w-full mb-4 h-14 rounded-2xl glass-card text-white/90 font-semibold transition-all flex items-center justify-center gap-2 interactive-scale relative z-10 hover:shadow-elevated"
         >
           {showDetails ? (
             <>
@@ -74,19 +78,22 @@ export function WeatherCard({ weather, mood }: WeatherCardProps) {
 
         {showDetails && (
           <div className="grid grid-cols-3 gap-4 mb-6 animate-in relative z-10">
-            <div className="glass-card rounded-2xl p-4 group cursor-pointer hover:shadow-elevated interactive-glow text-white hover:bg-white hover:text-black">
+            {/* * UPDATED: Removed hover:bg-white and hover:text-black */ }
+            <div className="glass-card rounded-2xl p-4 group cursor-pointer hover:shadow-elevated interactive-glow text-white">
               <Gauge className="w-7 h-7 text-orange-300 mb-2 mx-auto group-hover:scale-110 transition-transform duration-300 drop-shadow-lg animate-bounce-slow" />
               <div className="text-xs mb-1 text-center font-semibold text-shadow-soft">Feels Like</div>
               <div className="text-2xl font-bold text-center text-shadow-medium">{weather.feelsLike}°</div>
             </div>
 
-            <div className="glass-card rounded-2xl p-4 group cursor-pointer hover:shadow-elevated interactive-glow text-white hover:bg-white hover:text-black">
+            {/* * UPDATED: Removed hover:bg-white and hover:text-black */ }
+            <div className="glass-card rounded-2xl p-4 group cursor-pointer hover:shadow-elevated interactive-glow text-white">
               <Eye className="w-7 h-7 text-green-300 mb-2 mx-auto group-hover:scale-110 transition-transform duration-300 drop-shadow-lg animate-bounce-slow" style={{animationDelay: '0.2s'}} />
               <div className="text-xs mb-1 text-center font-semibold text-shadow-soft">Visibility</div>
               <div className="text-2xl font-bold text-center text-shadow-medium">{weather.visibility} km</div>
             </div>
 
-            <div className="glass-card rounded-2xl p-4 group cursor-pointer hover:shadow-elevated interactive-glow text-white hover:bg-white hover:text-black">
+            {/* * UPDATED: Removed hover:bg-white and hover:text-black */ }
+            <div className="glass-card rounded-2xl p-4 group cursor-pointer hover:shadow-elevated interactive-glow text-white">
               <Gauge className="w-7 h-7 text-pink-300 mb-2 mx-auto group-hover:scale-110 transition-transform duration-300 drop-shadow-lg animate-bounce-slow" style={{animationDelay: '0.4s'}} />
               <div className="text-xs mb-1 text-center font-semibold text-shadow-soft">Pressure</div>
               <div className="text-lg font-bold text-center text-shadow-medium">{weather.pressure} hPa</div>
@@ -95,12 +102,13 @@ export function WeatherCard({ weather, mood }: WeatherCardProps) {
         )}
 
         {/* Mood Quote */}
-        <div className="glass-card rounded-2xl p-6 animate-fade-in relative z-10 border-2 border-white/30 shadow-elevated hover:shadow-2xl transition-all duration-300 interactive-glow text-white hover:bg-white hover:text-black">
+        {/* * UPDATED: Removed hover:bg-white and hover:text-black */ }
+        <div className="glass-card rounded-2xl p-6 animate-fade-in relative z-10 border-2 border-white/30 shadow-elevated hover:shadow-2xl transition-all duration-300 interactive-glow text-white">
           <div className="flex items-start gap-4">
             <span className="text-5xl animate-bounce-slow drop-shadow-2xl">{mood.emoji}</span>
             <div className="flex-1">
-              <div className="text-xs mb-2 font-bold tracking-wider uppercase text-shadow-soft">Clime says...</div>
-              <p className="text-base leading-relaxed italic font-medium text-shadow-medium">{mood.quote}</p>
+              <div className="text-xs text-white mb-2 font-bold tracking-wider uppercase text-shadow-soft">Clime says...</div>
+              <p className="text-white text-base leading-relaxed italic font-medium text-shadow-medium">{mood.quote}</p>
             </div>
           </div>
         </div>
