@@ -16,12 +16,15 @@ export function WeatherRecommendations({ weather }: WeatherRecommendationsProps)
         {recommendations.map((rec, index) => (
           <div
             key={index}
-            className="glass-card rounded-2xl p-5 shadow-elevated interactive-glow cursor-pointer group animate-scale-in border-2 hover:animate-pop"
+            /* * UPDATED THIS LINE:
+             * Added "text-white hover:bg-white hover:text-black"
+             */
+            className="glass-card rounded-2xl p-5 shadow-elevated interactive-glow cursor-pointer group animate-scale-in border-2 hover:animate-pop text-white hover:bg-white hover:text-black"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
             <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300 drop-shadow-2xl animate-bounce-slow">{rec.icon}</div>
-            <div className="text-white font-bold text-base mb-2 text-shadow-medium">{rec.title}</div>
-            <div className="text-white text-sm leading-relaxed text-shadow-soft">{rec.description}</div>
+            <div className="font-bold text-base mb-2 text-shadow-medium">{rec.title}</div>
+            <div className="text-sm leading-relaxed text-shadow-soft">{rec.description}</div>
           </div>
         ))}
       </div>
