@@ -31,18 +31,24 @@ export function SearchBar({ onSearch, onLocationRequest, placeholder = "Search c
             onChange={(e) => setCity(e.target.value)}
             placeholder={placeholder}
             /* * UPDATED THIS LINE:
-             * Changed "placeholder:text-white/90" to "placeholder:text-white"
+             * Added hover/focus states for light glass
              */
-            className="pl-14 h-16 glass-card text-white text-lg placeholder:text-white rounded-3xl focus:shadow-elevated transition-all font-medium text-shadow-soft border-2"
+            className="pl-14 h-16 glass-card text-white text-lg placeholder:text-white/70 rounded-3xl focus:shadow-elevated transition-all font-medium text-shadow-soft border-2 hover:bg-white/40 focus:bg-white focus:text-black focus:placeholder:text-gray-500"
           />
         </div>
         <Button
           type="button"
           onClick={onLocationRequest}
-          className="h-16 w-16 rounded-3xl glass-card interactive-glow hover:shadow-elevated hover:animate-wiggle border-2"
+          /* * UPDATED THIS LINE:
+           * Added hover states for light glass
+           */
+          className="h-16 w-16 rounded-3xl glass-card interactive-glow hover:shadow-elevated hover:animate-wiggle border-2 text-white hover:bg-white hover:text-black"
           size="icon"
         >
-          <MapPin className="w-6 h-6 text-white drop-shadow-lg" />
+          {/* * UPDATED THIS LINE:
+           * Removed "text-white" to inherit from button
+           */}
+          <MapPin className="w-6 h-6 drop-shadow-lg" />
         </Button>
       </form>
     </div>
