@@ -98,10 +98,20 @@ export function QuickActions({ weather, onAskClime }: QuickActionsProps) {
           <Button
             key={index}
             onClick={action.action}
-            className="h-auto py-6 px-5 rounded-2xl glass-card interactive-glow hover:shadow-elevated flex flex-col items-center gap-3 border-2 hover:animate-pop"
+            /* * UPDATED THIS LINE:
+             * Added "text-white hover:bg-white hover:text-black"
+             */
+            className="h-auto py-6 px-5 rounded-2xl glass-card interactive-glow hover:shadow-elevated flex flex-col items-center gap-3 border-2 hover:animate-pop text-white hover:bg-white hover:text-black"
           >
-            <action.icon className="w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300 drop-shadow-lg animate-float" />
-            <span className="text-white text-base font-semibold text-center text-shadow-soft">{action.label}</span>
+            {/* * UPDATED THIS LINE:
+             * Removed "text-white" so it inherits from the button
+             */}
+            <action.icon className="w-8 h-8 group-hover:scale-110 transition-transform duration-300 drop-shadow-lg animate-float" />
+            
+            {/* * UPDATED THIS LINE:
+             * Removed "text-white" so it inherits from the button
+             */}
+            <span className="text-base font-semibold text-center text-shadow-soft">{action.label}</span>
           </Button>
         ))}
       </div>
