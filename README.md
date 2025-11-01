@@ -1,157 +1,105 @@
-# Clime - Your Personal Sky Companion 🌤️
+🌤️ Clime — Your Personal Sky Companion
 
-A modern, emotionally engaging weather companion app that blends AI, weather data, and mood interpretation to create a personalized experience.
+“Not just a weather app — a mood experience that feels the sky with you.”
 
-**URL**: https://lovable.dev/projects/55873ed3-e6ec-429c-85fc-801d640f94d7
+✨ Overview
 
-## Features ✨
+Clime is a modern, emotionally engaging weather companion app that transforms everyday weather data into personal mood reflections.
+Whether it’s rain, sunshine, or a cloudy day — Clime interprets the sky as an emotional landscape, offering smart insights, beautiful visuals, and an intuitive voice interface.
 
-- **Real-time Weather Display** - Current weather conditions with beautiful visuals
-- **5-Day Forecast** - Interactive carousel showing upcoming weather
-- **Mood Engine** - Converts weather conditions into emotional experiences
-- **Quick Actions** - Get instant answers to common weather questions
-- **Smart Recommendations** - Personalized suggestions based on current weather
-- **Voice Conversation** - Talk to Clime using speech recognition
-- **Multi-language Support** - English, Tamil, Hindi, Telugu, Malayalam
-- **Dark/Light Mode** - Adaptive theming
-- **Location Detection** - Automatic location-based weather
-- **City Search** - Find weather for any city worldwide
-- **Shareable Weather Cards** - Share your current weather experience
+This project reflects my passion for UI/UX design, frontend development, and emotion-driven digital experiences.
 
-## Tech Stack 🛠️
+🌈 Core Features
+Category	                    Feature	                                  Description
+☀️ Weather	             Real-time Display	         Dynamic backgrounds that match the live weather.
+📅 Forecast             	5-Day Carous               Interactive cards that make weather browsing simple and fun.
+💫 Mood                 Engine	Emotion Mapping	   Converts “Rain” → “Cozy”, “Clear” → “Cheerful”, etc.
+🗣️ Voice	Conversation   Mode	Talk to Clime           through built-in speech recognition.
+🌍 Languages	         Multi-language Support	      English, Tamil, Hindi, Telugu & Malayalam.
+👕 Smart Tips	         Recommendations	            Suggests outfits, indoor/outdoor activities, and mood music ideas.
+📍 Geo Smart	         Auto Location Detection	      Instantly fetches weather for your current place.
+🔍 Explore	            City Search	                  Get weather data for any city worldwide.
+💎 Design	            Glassmorphism UI	            Modern, smooth, and emotion-based visual experience.
 
-- **Frontend**: React + TypeScript + Vite
-- **Styling**: TailwindCSS with glassmorphism design
-- **Weather API**: OpenWeatherMap
-- **Voice**: Web Speech API (Speech Recognition & Synthesis)
-- **State**: React Hooks + LocalStorage
+🛠️ Tech Stack
+Area	            Technology
+Frontend	         React + TypeScript + Vite
+Styling	         TailwindCSS + Shadcn/UI
+APIs	            OpenWeatherMap
+Voice Engine	   Web Speech API (Recognition + Synthesis)
+State Management	React Hooks + LocalStorage
+Deployment	      GitHub Pages + GitHub Actions
 
-## Setup Instructions 🚀
+🧭 Setup Guide
+1️⃣ Get Your OpenWeatherMap API Key
+Visit OpenWeatherMap API
+Sign up and navigate to API Keys
+Copy your personal API key
 
-### 1. Get Your OpenWeatherMap API Key
+2️⃣ Configure .env
+cp .env.example .env
+Then open .env and paste your key:
+VITE_OPENWEATHER_API_KEY=your_api_key_here
 
-1. Visit [OpenWeatherMap API](https://openweathermap.org/api)
-2. Sign up for a free account
-3. Navigate to "API keys" in your account
-4. Copy your API key
+3️⃣ Run Locally
+# Clone the repository
+git clone https://github.com/praveenkumar83372/clime.git
 
-### 2. Configure Environment Variables
+# Enter the directory
+cd clime
 
-**For Lovable Deployment:**
-1. Go to Project Settings → Environment Variables
-2. Add: `VITE_OPENWEATHER_API_KEY` with your API key value
-
-**For Local Development:**
-1. Create a `.env` file in the root directory:
-   ```bash
-   cp .env.example .env
-   ```
-2. Add your OpenWeatherMap API key:
-   ```
-   VITE_OPENWEATHER_API_KEY=your_actual_api_key_here
-   ```
-
-### 3. Local Development
-
-```sh
-# Step 1: Clone the repository
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install dependencies
+# Install dependencies
 npm install
 
-# Step 4: Start the development server
+# Run development server
 npm run dev
-```
 
-## Deployment 🌐
+🚀 Deployment
 
-### Deploy with Lovable (Recommended)
+Clime is pre-configured for GitHub Pages, but can also be hosted on Vercel or Netlify.
 
-1. Open [Lovable](https://lovable.dev/projects/55873ed3-e6ec-429c-85fc-801d640f94d7)
-2. Click on **Share → Publish**
-3. Add environment variable in Project Settings:
-   - Key: `VITE_OPENWEATHER_API_KEY`
-   - Value: Your OpenWeatherMap API key
+🧩 Environment Variable for Deployment
 
-### Deploy to Vercel
+Key: VITE_OPENWEATHER_API_KEY
+Value: your_api_key_here
+(Your .env is ignored via .gitignore for safety.)
 
-1. Push your code to GitHub
-2. Import project in Vercel
-3. Add environment variable: `VITE_OPENWEATHER_API_KEY`
-4. Deploy
-
-### Deploy to Netlify
-
-1. Push your code to GitHub
-2. Connect repository in Netlify
-3. Add environment variable: `VITE_OPENWEATHER_API_KEY`
-4. Deploy
-
-## Environment Variables 🔐
-
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `VITE_OPENWEATHER_API_KEY` | Your OpenWeatherMap API key | Yes |
-
-**Important**: Never commit your `.env` file to version control. It's already included in `.gitignore`.
-
-## Browser Support 🌐
-
-- **Voice Features**: Chrome, Edge, Safari (iOS 14.5+)
-- **Core Features**: All modern browsers
-- **Speech Recognition**: Limited to browsers with Web Speech API support
-
-## Custom Domain 🌍
-
-To connect a custom domain:
-1. Navigate to Project > Settings > Domains
-2. Click "Connect Domain"
-3. Follow the setup instructions
-
-Read more: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
-
-## API Rate Limits ⚠️
-
-OpenWeatherMap free tier includes:
-- 60 calls/minute
-- 1,000,000 calls/month
-
-The app makes approximately:
-- 1 call on load
-- 1 call per city search
-- 1 call per forecast request
-
-## Project Structure 📁
-
-```
+📁 Folder Structure
 src/
-├── components/          # React components
-├── lib/                # Utilities and services
-├── pages/              # Route pages
-└── assets/             # Static assets
-```
+├── assets/             # Backgrounds & icons
+├── components/         # Reusable UI blocks
+│   └── ui/             # Shadcn components
+├── lib/                # Helper modules (moodEngine, weatherApi)
+└── pages/              # Main pages (Index.tsx)
 
-## Contributing 🤝
+🎨 Design Philosophy
 
-Contributions are welcome! Feel free to edit via:
-- **Lovable**: Direct prompting in the editor
-- **GitHub**: Edit files directly or use Codespaces
-- **Local IDE**: Clone, edit, and push changes
+“Weather isn’t just numbers — it’s a feeling.”
+Clime’s design focuses on emotional storytelling through UI:
+Soft glassmorphism cards that reflect calmness
+Smooth weather transitions that mirror mood shifts
+Voice interactions that make the app feel alive
+A warm, multilingual touch for inclusivity
+This project embodies my goal of bridging technology and emotion through human-centered design.
 
-## License 📄
+🤝 Contributing
 
-MIT License - feel free to use this project for personal or commercial purposes.
+Pull requests are welcome!
+If you’d like to enhance Clime’s features or design, feel free to fork and contribute.
+Fork this repository
+Create a feature branch
+Commit your changes
+Push and submit a PR 🚀
 
-## Credits 🙏
+📜 License
+Licensed under the MIT License — free for personal and commercial use.
 
-- Weather data provided by [OpenWeatherMap](https://openweathermap.org/)
-- Icons from [Lucide React](https://lucide.dev/)
-- Built with [Lovable](https://lovable.dev/)
+💖 Credits
+Weather Data: OpenWeatherMap
+Icons: Lucide React
+UI Library: Shadcn/UI
+Made with ❤️ by Praveen Kumar
 
----
-
-Made with ❤️ using Lovable - Your Personal Sky Companion
+🌤️ Final Thought
+"Clime is more than an app — it’s how you feel the weather."
+Designed & developed with passion for those who believe technology can have a heart. 💙
