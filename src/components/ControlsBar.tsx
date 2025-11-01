@@ -26,41 +26,41 @@ export function ControlsBar({
         <Button
           onClick={onVoiceClick}
           size="icon"
-          className="rounded-full bg-white/10 hover:bg-white/25 border-0 w-14 h-14 interactive-scale group"
+          className="rounded-full bg-white/10 hover:bg-white/25 border-0 w-14 h-14 interactive-glow group hover:animate-pulse"
         >
-          <Mic className="w-6 h-6 text-white group-hover:text-pink-300 transition-colors duration-300" />
+          <Mic className="w-6 h-6 text-white group-hover:text-pink-300 transition-colors duration-300 drop-shadow-lg" />
         </Button>
 
         <Button
           onClick={onThemeToggle}
           size="icon"
-          className="rounded-full bg-white/10 hover:bg-white/25 border-0 w-14 h-14 interactive-scale group"
+          className="rounded-full bg-white/10 hover:bg-white/25 border-0 w-14 h-14 interactive-glow group hover:animate-wiggle"
         >
-          {isDark ? <Sun className="w-6 h-6 text-white group-hover:text-yellow-300 transition-colors duration-300" /> : <Moon className="w-6 h-6 text-white group-hover:text-indigo-300 transition-colors duration-300" />}
+          {isDark ? <Sun className="w-6 h-6 text-white group-hover:text-yellow-300 transition-colors duration-300 drop-shadow-lg" /> : <Moon className="w-6 h-6 text-white group-hover:text-indigo-300 transition-colors duration-300 drop-shadow-lg" />}
         </Button>
 
         <Button
           onClick={onSoundToggle}
           size="icon"
-          className="rounded-full bg-white/10 hover:bg-white/25 border-0 w-14 h-14 interactive-scale group"
+          className="rounded-full bg-white/10 hover:bg-white/25 border-0 w-14 h-14 interactive-glow group hover:animate-pop"
         >
-          {isSoundOn ? <Volume2 className="w-6 h-6 text-white group-hover:text-green-300 transition-colors duration-300" /> : <VolumeX className="w-6 h-6 text-white group-hover:text-red-300 transition-colors duration-300" />}
+          {isSoundOn ? <Volume2 className="w-6 h-6 text-white group-hover:text-green-300 transition-colors duration-300 drop-shadow-lg" /> : <VolumeX className="w-6 h-6 text-white group-hover:text-red-300 transition-colors duration-300 drop-shadow-lg" />}
         </Button>
 
         <Button
           onClick={onShareClick}
           size="icon"
-          className="rounded-full bg-white/10 hover:bg-white/25 border-0 w-14 h-14 interactive-scale group"
+          className="rounded-full bg-white/10 hover:bg-white/25 border-0 w-14 h-14 interactive-glow group hover:animate-pop"
         >
-          <Share2 className="w-6 h-6 text-white group-hover:text-blue-300 transition-colors duration-300" />
+          <Share2 className="w-6 h-6 text-white group-hover:text-blue-300 transition-colors duration-300 drop-shadow-lg" />
         </Button>
 
         <Button
           onClick={onSettingsClick}
           size="icon"
-          className="rounded-full bg-white/10 hover:bg-white/25 border-0 w-14 h-14 interactive-scale group"
+          className="rounded-full bg-white/10 hover:bg-white/25 border-0 w-14 h-14 interactive-glow group hover:rotate-90"
         >
-          <Settings className="w-6 h-6 text-white group-hover:text-purple-300 group-hover:rotate-90 transition-all duration-300" />
+          <Settings className="w-6 h-6 text-white group-hover:text-purple-300 transition-all duration-300 drop-shadow-lg" />
         </Button>
       </div>
     </div>

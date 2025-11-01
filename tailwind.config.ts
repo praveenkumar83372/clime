@@ -125,6 +125,19 @@ export default {
             animationTimingFunction: "cubic-bezier(0, 0, 0.2, 1)",
           },
         },
+        "shimmer": {
+          "0%": { backgroundPosition: "-1000px 0" },
+          "100%": { backgroundPosition: "1000px 0" },
+        },
+        "wiggle": {
+          "0%, 100%": { transform: "rotate(-3deg)" },
+          "50%": { transform: "rotate(3deg)" },
+        },
+        "pop": {
+          "0%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.1)" },
+          "100%": { transform: "scale(1)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -137,6 +150,9 @@ export default {
         "pulse-slow": "pulse-slow 3s ease-in-out infinite",
         "float": "float 3s ease-in-out infinite",
         "bounce-slow": "bounce-slow 2s infinite",
+        "shimmer": "shimmer 3s ease-in-out infinite",
+        "wiggle": "wiggle 0.5s ease-in-out",
+        "pop": "pop 0.3s ease-in-out",
       },
     },
   },

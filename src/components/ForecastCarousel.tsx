@@ -22,7 +22,7 @@ export function ForecastCarousel({ forecast }: ForecastCarouselProps) {
 
   return (
     <div className="w-full max-w-lg mx-auto mb-6 animate-fade-in">
-      <h3 className="text-white text-2xl font-bold mb-5 text-center drop-shadow-lg">5-Day Forecast</h3>
+      <h3 className="text-white text-2xl font-bold mb-5 text-center text-shadow-medium">5-Day Forecast</h3>
       
       <div className="relative glass-card rounded-3xl p-8 shadow-elevated border-2">
         {/* Carousel */}
@@ -30,32 +30,32 @@ export function ForecastCarousel({ forecast }: ForecastCarouselProps) {
           <Button
             onClick={prev}
             size="icon"
-            className="rounded-full glass-card w-12 h-12 flex-shrink-0 interactive-scale hover:shadow-lg"
+            className="rounded-full glass-card w-12 h-12 flex-shrink-0 interactive-glow hover:shadow-lg hover:animate-wiggle"
           >
-            <ChevronLeft className="w-6 h-6 text-white" />
+            <ChevronLeft className="w-6 h-6 text-white drop-shadow-lg" />
           </Button>
 
           <div className="flex-1 text-center animate-scale-in">
-            <div className="text-white/80 text-base font-semibold mb-3 tracking-wide">{forecast[currentIndex].date}</div>
-            <div className="text-7xl mb-4 transform hover:scale-110 transition-transform duration-300">
+            <div className="text-white text-base font-bold mb-3 tracking-wide text-shadow-soft">{forecast[currentIndex].date}</div>
+            <div className="text-7xl mb-4 transform hover:scale-110 transition-transform duration-300 animate-bounce-slow drop-shadow-2xl">
               {forecast[currentIndex].icon.endsWith('d') ? '☀️' : '🌙'}
             </div>
-            <div className="text-5xl font-bold text-white mb-2 text-gradient">
+            <div className="text-5xl font-bold text-white mb-2 text-shadow-strong">
               {forecast[currentIndex].temp}°
             </div>
-            <div className="text-white/90 capitalize mb-3 text-lg font-medium">{forecast[currentIndex].description}</div>
-            <div className="flex justify-center gap-4 text-white/70 text-base font-semibold">
-              <span className="glass-card px-4 py-2 rounded-full">↑ {forecast[currentIndex].tempMax}°</span>
-              <span className="glass-card px-4 py-2 rounded-full">↓ {forecast[currentIndex].tempMin}°</span>
+            <div className="text-white capitalize mb-3 text-lg font-medium text-shadow-medium">{forecast[currentIndex].description}</div>
+            <div className="flex justify-center gap-4 text-white text-base font-bold">
+              <span className="glass-card px-4 py-2 rounded-full interactive-glow text-shadow-soft">↑ {forecast[currentIndex].tempMax}°</span>
+              <span className="glass-card px-4 py-2 rounded-full interactive-glow text-shadow-soft">↓ {forecast[currentIndex].tempMin}°</span>
             </div>
           </div>
 
           <Button
             onClick={next}
             size="icon"
-            className="rounded-full glass-card w-12 h-12 flex-shrink-0 interactive-scale hover:shadow-lg"
+            className="rounded-full glass-card w-12 h-12 flex-shrink-0 interactive-glow hover:shadow-lg hover:animate-wiggle"
           >
-            <ChevronRight className="w-6 h-6 text-white" />
+            <ChevronRight className="w-6 h-6 text-white drop-shadow-lg" />
           </Button>
         </div>
 
@@ -65,8 +65,8 @@ export function ForecastCarousel({ forecast }: ForecastCarouselProps) {
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`h-2.5 rounded-full transition-all duration-300 interactive-scale ${
-                index === currentIndex ? "bg-white w-8" : "bg-white/40 w-2.5 hover:bg-white/60"
+              className={`h-2.5 rounded-full transition-all duration-300 interactive-glow hover:animate-pop ${
+                index === currentIndex ? "bg-white w-8 shadow-lg" : "bg-white/50 w-2.5 hover:bg-white/70"
               }`}
             />
           ))}

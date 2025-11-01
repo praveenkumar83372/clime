@@ -138,9 +138,9 @@ const Index = () => {
   if (isLoading || !weather || !mood) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500">
-        <div className="text-center">
-          <div className="text-white text-3xl font-bold mb-4 animate-pulse">Loading Clime...</div>
-          <div className="w-16 h-16 border-4 border-white/30 border-t-white rounded-full animate-spin mx-auto"></div>
+        <div className="text-center space-y-4">
+          <div className="text-white text-4xl font-bold mb-4 animate-pulse text-shadow-strong">Loading Clime...</div>
+          <div className="w-20 h-20 border-4 border-white/30 border-t-white rounded-full animate-spin mx-auto shadow-2xl"></div>
         </div>
       </div>
     );
@@ -154,8 +154,8 @@ const Index = () => {
       <main className="relative z-10 min-h-screen flex flex-col items-center justify-center p-6">
         {/* Header */}
         <div className="text-center mb-8 animate-fade-in">
-          <h1 className="text-7xl font-bold text-white mb-3 drop-shadow-2xl tracking-tight text-gradient">Clime</h1>
-          <p className="text-white/90 text-xl font-medium drop-shadow-lg">{translate("tagline", language)}</p>
+          <h1 className="text-7xl font-bold text-white mb-3 tracking-tight text-shadow-strong animate-float">Clime</h1>
+          <p className="text-white text-xl font-medium text-shadow-medium">{translate("tagline", language)}</p>
         </div>
 
         {/* Search Bar */}

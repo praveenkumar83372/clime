@@ -64,11 +64,15 @@ All colors MUST be HSL.
     --night-accent: 220 70% 50%;
     --night-glow: 240 80% 60%;
 
-    /* Glass Effect - Enhanced */
-    --glass-bg: 255 255 255 / 0.15;
-    --glass-border: 255 255 255 / 0.25;
+    /* Glass Effect - Enhanced with better contrast */
+    --glass-bg: 255 255 255 / 0.2;
+    --glass-border: 255 255 255 / 0.35;
     --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    --glass-hover: 255 255 255 / 0.2;
+    --glass-hover: 255 255 255 / 0.28;
+    --glass-text: 255 255 255;
+    --text-shadow-strong: 0 2px 8px rgba(0, 0, 0, 0.7), 0 1px 2px rgba(0, 0, 0, 0.9);
+    --text-shadow-medium: 0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.7);
+    --text-shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.4);
 
     /* Gradients */
     --gradient-sunny: linear-gradient(135deg, hsl(var(--sunny)) 0%, hsl(var(--sunny-secondary)) 100%);
@@ -127,8 +131,9 @@ All colors MUST be HSL.
     --clear: 200 70% 55%;
     --night: 220 50% 10%;
 
-    --glass-bg: 0 0 0 / 0.3;
-    --glass-border: 255 255 255 / 0.1;
+    --glass-bg: 0 0 0 / 0.4;
+    --glass-border: 255 255 255 / 0.2;
+    --glass-hover: 0 0 0 / 0.5;
   }
 }
 
@@ -145,7 +150,8 @@ All colors MUST be HSL.
 @layer utilities {
   .glass-card {
     background: rgba(var(--glass-bg));
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     border: 1px solid rgba(var(--glass-border));
     box-shadow: var(--glass-shadow);
     transition: var(--transition-smooth);
@@ -162,6 +168,19 @@ All colors MUST be HSL.
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-shadow: var(--text-shadow-soft);
+  }
+
+  .text-shadow-strong {
+    text-shadow: var(--text-shadow-strong);
+  }
+
+  .text-shadow-medium {
+    text-shadow: var(--text-shadow-medium);
+  }
+
+  .text-shadow-soft {
+    text-shadow: var(--text-shadow-soft);
   }
 
   .interactive-scale {
@@ -174,5 +193,18 @@ All colors MUST be HSL.
 
   .interactive-scale:active {
     transform: scale(0.98);
+  }
+
+  .interactive-glow {
+    transition: var(--transition-fast);
+  }
+
+  .interactive-glow:hover {
+    filter: brightness(1.2);
+    transform: scale(1.02);
+  }
+
+  .animate-in {
+    animation: slide-up 0.5s ease-out, fade-in 0.5s ease-out;
   }
 }
