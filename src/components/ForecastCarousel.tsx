@@ -30,9 +30,12 @@ export function ForecastCarousel({ forecast }: ForecastCarouselProps) {
           <Button
             onClick={prev}
             size="icon"
-            className="rounded-full glass-card w-12 h-12 flex-shrink-0 interactive-glow hover:shadow-lg hover:animate-wiggle"
+            /* * UPDATED THIS LINE:
+             * Added "text-white hover:bg-white hover:text-black"
+             */
+            className="rounded-full glass-card w-12 h-12 flex-shrink-0 interactive-glow hover:shadow-lg hover:animate-wiggle text-white hover:bg-white hover:text-black"
           >
-            <ChevronLeft className="w-6 h-6 text-white drop-shadow-lg" />
+            <ChevronLeft className="w-6 h-6 drop-shadow-lg" />
           </Button>
 
           <div className="flex-1 text-center animate-scale-in">
@@ -45,15 +48,24 @@ export function ForecastCarousel({ forecast }: ForecastCarouselProps) {
             </div>
             <div className="text-white capitalize mb-3 text-lg font-medium text-shadow-medium">{forecast[currentIndex].description}</div>
             <div className="flex justify-center gap-4 text-white text-base font-bold">
-              <span className="glass-card px-4 py-2 rounded-full interactive-glow text-shadow-soft">↑ {forecast[currentIndex].tempMax}°</span>
-              <span className="glass-card px-4 py-2 rounded-full interactive-glow text-shadow-soft">↓ {forecast[currentIndex].tempMin}°</span>
+              {/* * UPDATED THIS LINE:
+               * Added "text-white hover:bg-white hover:text-black"
+               */}
+              <span className="glass-card px-4 py-2 rounded-full interactive-glow text-shadow-soft text-white hover:bg-white hover:text-black">↑ {forecast[currentIndex].tempMax}°</span>
+              {/* * UPDATED THIS LINE:
+               * Added "text-white hover:bg-white hover:text-black"
+               */}
+              <span className="glass-card px-4 py-2 rounded-full interactive-glow text-shadow-soft text-white hover:bg-white hover:text-black">↓ {forecast[currentIndex].tempMin}°</span>
             </div>
           </div>
 
           <Button
             onClick={next}
             size="icon"
-            className="rounded-full glass-card w-12 h-12 flex-shrink-0 interactive-glow hover:shadow-lg hover:animate-wiggle"
+            /* * UPDATED THIS LINE:
+             * Added "text-white hover:bg-white hover:text-black"
+             */
+            className="rounded-full glass-card w-12 h-12 flex-shrink-0 interactive-glow hover:shadow-lg hover:animate-wiggle text-white hover:bg-white hover:text-black"
           >
             <ChevronRight className="w-6 h-6 text-white drop-shadow-lg" />
           </Button>
