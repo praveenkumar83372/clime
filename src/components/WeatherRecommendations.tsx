@@ -1,5 +1,6 @@
 import { WeatherData } from "@/lib/weatherApi";
 import { getWeatherRecommendations } from "@/lib/recommendations";
+import { toast } from "sonner"; // <-- ADDED THIS to make pop-ups work
 
 interface WeatherRecommendationsProps {
   weather: WeatherData;
@@ -17,10 +18,14 @@ export function WeatherRecommendations({ weather }: WeatherRecommendationsProps)
           <div
             key={index}
             /* * UPDATED THIS LINE:
-             * Added "text-white hover:bg-white hover:text-black"
+             * Removed "hover:bg-white" and "hover:text-black"
              */
-            className="glass-card rounded-2xl p-5 shadow-elevated interactive-glow cursor-pointer group animate-scale-in border-2 hover:animate-pop text-white hover:bg-white hover:text-black"
+            className="glass-card rounded-2xl p-5 shadow-elevated interactive-glow cursor-pointer group animate-scale-in border-2 hover:animate-pop text-white"
             style={{ animationDelay: `${index * 0.1}s` }}
+            /* * UPDATED THIS LINE:
+             * Added onClick to show a pop-up toast
+             */
+            onClick={() => toast.success(rec.title, { description: rec.description })}
           >
             <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300 drop-shadow-2xl animate-bounce-slow">{rec.icon}</div>
             <div className="font-bold text-base mb-2 text-shadow-medium">{rec.title}</div>
