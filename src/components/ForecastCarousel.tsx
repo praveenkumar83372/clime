@@ -22,51 +22,51 @@ export function ForecastCarousel({ forecast }: ForecastCarouselProps) {
 
   return (
     <div className="w-full max-w-lg mx-auto mb-6 animate-fade-in">
-      <h3 className="text-white/90 text-lg font-semibold mb-3 text-center">5-Day Forecast</h3>
+      <h3 className="text-white text-2xl font-bold mb-5 text-center drop-shadow-lg">5-Day Forecast</h3>
       
-      <div className="relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-6 shadow-xl">
+      <div className="relative glass-card rounded-3xl p-8 shadow-elevated border-2">
         {/* Carousel */}
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center justify-between gap-6">
           <Button
             onClick={prev}
             size="icon"
-            className="rounded-full bg-white/10 hover:bg-white/20 border-0 w-10 h-10 flex-shrink-0 transition-all hover:scale-110"
+            className="rounded-full glass-card w-12 h-12 flex-shrink-0 interactive-scale hover:shadow-lg"
           >
-            <ChevronLeft className="w-5 h-5 text-white" />
+            <ChevronLeft className="w-6 h-6 text-white" />
           </Button>
 
           <div className="flex-1 text-center animate-scale-in">
-            <div className="text-white/70 text-sm mb-2">{forecast[currentIndex].date}</div>
-            <div className="text-6xl mb-2">
+            <div className="text-white/80 text-base font-semibold mb-3 tracking-wide">{forecast[currentIndex].date}</div>
+            <div className="text-7xl mb-4 transform hover:scale-110 transition-transform duration-300">
               {forecast[currentIndex].icon.endsWith('d') ? '☀️' : '🌙'}
             </div>
-            <div className="text-4xl font-bold text-white mb-1">
+            <div className="text-5xl font-bold text-white mb-2 text-gradient">
               {forecast[currentIndex].temp}°
             </div>
-            <div className="text-white/80 capitalize mb-2">{forecast[currentIndex].description}</div>
-            <div className="flex justify-center gap-2 text-white/60 text-sm">
-              <span>↑ {forecast[currentIndex].tempMax}°</span>
-              <span>↓ {forecast[currentIndex].tempMin}°</span>
+            <div className="text-white/90 capitalize mb-3 text-lg font-medium">{forecast[currentIndex].description}</div>
+            <div className="flex justify-center gap-4 text-white/70 text-base font-semibold">
+              <span className="glass-card px-4 py-2 rounded-full">↑ {forecast[currentIndex].tempMax}°</span>
+              <span className="glass-card px-4 py-2 rounded-full">↓ {forecast[currentIndex].tempMin}°</span>
             </div>
           </div>
 
           <Button
             onClick={next}
             size="icon"
-            className="rounded-full bg-white/10 hover:bg-white/20 border-0 w-10 h-10 flex-shrink-0 transition-all hover:scale-110"
+            className="rounded-full glass-card w-12 h-12 flex-shrink-0 interactive-scale hover:shadow-lg"
           >
-            <ChevronRight className="w-5 h-5 text-white" />
+            <ChevronRight className="w-6 h-6 text-white" />
           </Button>
         </div>
 
         {/* Dots indicator */}
-        <div className="flex justify-center gap-2 mt-4">
+        <div className="flex justify-center gap-3 mt-6">
           {forecast.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`w-2 h-2 rounded-full transition-all ${
-                index === currentIndex ? "bg-white w-6" : "bg-white/30"
+              className={`h-2.5 rounded-full transition-all duration-300 interactive-scale ${
+                index === currentIndex ? "bg-white w-8" : "bg-white/40 w-2.5 hover:bg-white/60"
               }`}
             />
           ))}

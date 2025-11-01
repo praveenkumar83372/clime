@@ -38,34 +38,57 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
 
-    /* Weather Mood Colors */
+    /* Weather Mood Colors - Enhanced */
     --sunny: 45 100% 60%;
     --sunny-secondary: 35 100% 55%;
     --sunny-accent: 50 100% 70%;
+    --sunny-glow: 45 100% 50%;
     
-    --rainy: 210 50% 50%;
-    --rainy-secondary: 210 45% 40%;
-    --rainy-accent: 210 55% 60%;
+    --rainy: 210 70% 55%;
+    --rainy-secondary: 210 65% 45%;
+    --rainy-accent: 210 75% 65%;
+    --rainy-glow: 210 80% 60%;
     
-    --cloudy: 260 30% 85%;
-    --cloudy-secondary: 250 25% 75%;
-    --cloudy-accent: 270 35% 90%;
+    --cloudy: 260 40% 80%;
+    --cloudy-secondary: 250 35% 70%;
+    --cloudy-accent: 270 45% 85%;
+    --cloudy-glow: 260 50% 75%;
     
-    --clear: 200 80% 60%;
-    --clear-secondary: 200 75% 55%;
-    --clear-accent: 200 85% 70%;
+    --clear: 200 90% 65%;
+    --clear-secondary: 200 85% 60%;
+    --clear-accent: 200 95% 75%;
+    --clear-glow: 200 100% 70%;
     
-    --night: 220 40% 15%;
-    --night-secondary: 220 35% 20%;
-    --night-accent: 220 60% 45%;
+    --night: 220 50% 20%;
+    --night-secondary: 220 45% 25%;
+    --night-accent: 220 70% 50%;
+    --night-glow: 240 80% 60%;
 
-    /* Glass Effect */
-    --glass-bg: 255 255 255 / 0.1;
-    --glass-border: 255 255 255 / 0.2;
+    /* Glass Effect - Enhanced */
+    --glass-bg: 255 255 255 / 0.15;
+    --glass-border: 255 255 255 / 0.25;
     --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --glass-hover: 255 255 255 / 0.2;
 
-    /* Transition */
+    /* Gradients */
+    --gradient-sunny: linear-gradient(135deg, hsl(var(--sunny)) 0%, hsl(var(--sunny-secondary)) 100%);
+    --gradient-rainy: linear-gradient(135deg, hsl(var(--rainy)) 0%, hsl(var(--rainy-secondary)) 100%);
+    --gradient-cloudy: linear-gradient(135deg, hsl(var(--cloudy)) 0%, hsl(var(--cloudy-secondary)) 100%);
+    --gradient-clear: linear-gradient(135deg, hsl(var(--clear)) 0%, hsl(var(--clear-secondary)) 100%);
+    --gradient-night: linear-gradient(135deg, hsl(var(--night)) 0%, hsl(var(--night-secondary)) 100%);
+
+    /* Shadows & Glows */
+    --shadow-sunny: 0 10px 40px -10px hsl(var(--sunny-glow) / 0.5);
+    --shadow-rainy: 0 10px 40px -10px hsl(var(--rainy-glow) / 0.5);
+    --shadow-cloudy: 0 10px 40px -10px hsl(var(--cloudy-glow) / 0.3);
+    --shadow-clear: 0 10px 40px -10px hsl(var(--clear-glow) / 0.5);
+    --shadow-night: 0 10px 40px -10px hsl(var(--night-glow) / 0.4);
+    --shadow-elevated: 0 20px 60px -15px rgba(0, 0, 0, 0.3);
+
+    /* Transitions */
     --transition-smooth: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
   .dark {
@@ -116,5 +139,40 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    background: rgba(var(--glass-bg));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(var(--glass-border));
+    box-shadow: var(--glass-shadow);
+    transition: var(--transition-smooth);
+  }
+
+  .glass-card:hover {
+    background: rgba(var(--glass-hover));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, currentColor, rgba(255, 255, 255, 0.7));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .interactive-scale {
+    transition: var(--transition-fast);
+  }
+
+  .interactive-scale:hover {
+    transform: scale(1.05);
+  }
+
+  .interactive-scale:active {
+    transform: scale(0.98);
   }
 }

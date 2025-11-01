@@ -10,6 +10,7 @@ import { SettingsModal } from "@/components/SettingsModal";
 import { ForecastCarousel } from "@/components/ForecastCarousel";
 import { QuickActions } from "@/components/QuickActions";
 import { WeatherRecommendations } from "@/components/WeatherRecommendations";
+import { WeatherParticles } from "@/components/WeatherParticles";
 import { Language, detectBrowserLanguage, translate } from "@/lib/translations";
 import { toast } from "sonner";
 
@@ -136,8 +137,11 @@ const Index = () => {
 
   if (isLoading || !weather || !mood) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600">
-        <div className="text-white text-2xl animate-pulse">Loading Clime...</div>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500">
+        <div className="text-center">
+          <div className="text-white text-3xl font-bold mb-4 animate-pulse">Loading Clime...</div>
+          <div className="w-16 h-16 border-4 border-white/30 border-t-white rounded-full animate-spin mx-auto"></div>
+        </div>
       </div>
     );
   }
@@ -145,12 +149,13 @@ const Index = () => {
   return (
     <div className={`min-h-screen relative overflow-hidden ${isDark ? "dark" : ""}`}>
       <BackgroundScene background={mood.background} />
+      <WeatherParticles condition={weather.condition} />
 
       <main className="relative z-10 min-h-screen flex flex-col items-center justify-center p-6">
         {/* Header */}
         <div className="text-center mb-8 animate-fade-in">
-          <h1 className="text-5xl font-bold text-white mb-2 drop-shadow-lg">Clime</h1>
-          <p className="text-white/80 text-lg">{translate("tagline", language)}</p>
+          <h1 className="text-7xl font-bold text-white mb-3 drop-shadow-2xl tracking-tight text-gradient">Clime</h1>
+          <p className="text-white/90 text-xl font-medium drop-shadow-lg">{translate("tagline", language)}</p>
         </div>
 
         {/* Search Bar */}

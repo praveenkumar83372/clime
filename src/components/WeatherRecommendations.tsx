@@ -10,18 +10,18 @@ export function WeatherRecommendations({ weather }: WeatherRecommendationsProps)
 
   return (
     <div className="w-full max-w-lg mx-auto mb-6 animate-fade-in">
-      <h3 className="text-white/90 text-lg font-semibold mb-3 text-center">Recommendations</h3>
+      <h3 className="text-white text-2xl font-bold mb-5 text-center drop-shadow-lg">Recommendations</h3>
       
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-4">
         {recommendations.map((rec, index) => (
           <div
             key={index}
-            className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl p-4 shadow-lg hover:bg-white/15 transition-all hover:scale-105 cursor-pointer animate-scale-in"
+            className="glass-card rounded-2xl p-5 shadow-elevated interactive-scale cursor-pointer group animate-scale-in border-2"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
-            <div className="text-3xl mb-2">{rec.icon}</div>
-            <div className="text-white font-semibold text-sm mb-1">{rec.title}</div>
-            <div className="text-white/70 text-xs">{rec.description}</div>
+            <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">{rec.icon}</div>
+            <div className="text-white font-bold text-base mb-2">{rec.title}</div>
+            <div className="text-white/80 text-sm leading-relaxed">{rec.description}</div>
           </div>
         ))}
       </div>

@@ -91,17 +91,17 @@ export function QuickActions({ weather, onAskClime }: QuickActionsProps) {
 
   return (
     <div className="w-full max-w-lg mx-auto mb-6 animate-slide-up">
-      <h3 className="text-white/90 text-lg font-semibold mb-3 text-center">Quick Questions</h3>
+      <h3 className="text-white text-2xl font-bold mb-5 text-center drop-shadow-lg">Quick Questions</h3>
       
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-4">
         {actions.map((action, index) => (
           <Button
             key={index}
             onClick={action.action}
-            className="h-auto py-4 px-4 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-xl transition-all hover:scale-105 flex flex-col items-center gap-2"
+            className="h-auto py-6 px-5 rounded-2xl glass-card interactive-scale hover:shadow-elevated flex flex-col items-center gap-3 border-2"
           >
-            <action.icon className="w-6 h-6 text-white" />
-            <span className="text-white text-sm font-medium">{action.label}</span>
+            <action.icon className="w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300" />
+            <span className="text-white text-base font-semibold text-center">{action.label}</span>
           </Button>
         ))}
       </div>
